@@ -1,0 +1,571 @@
+<html xml:lang="en" lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Pre-Training meets Self-Training for Supersizing 3D Reconstruction</title>
+
+<meta property="og:title" content="Pre-Training meets Self-Training for Supersizing 3D Reconstruction">
+<script type="text/javascript">
+var _POPUP_FEATURES = 'width=500,height=300,resizable=1,scrollbars=1,titlebar=1,status=1';
+</script>
+
+<style type="text/css" media="all">
+IMG {
+  PADDING-RIGHT: 0px;
+  PADDING-LEFT: 0px;
+  FLOAT: right;
+  PADDING-BOTTOM: 0px;
+  PADDING-TOP: 0px
+}
+#primarycontent {
+  MARGIN-LEFT: auto; ; WIDTH: expression(document.body.clientWidth >
+1000? "1000px": "auto" ); MARGIN-RIGHT: auto; TEXT-ALIGN: left; max-width:
+1000px }
+BODY {
+  TEXT-ALIGN: center
+}
+</style>
+</head>
+<body data-gr-c-s-loaded="true">
+
+<div id="primarycontent">
+<center><h1>Pre-train, Self-train, Distill: A simple recipe for Supersizing 3D Reconstruction
+
+<p>
+</p><div width="500"><p>
+</p><table align="center" width="800px">
+<tbody>
+<tr>
+  <td>
+      
+      <left> Our work learns a unified model for single-view 3D reconstruction of objects from hundreds of semantic categories. As a scalable alternative to direct 3D supervision, our work relies on segmented image collections for learning 3D of generic categories. Unlike prior works that use similar supervision but learn independent category-specific models from scratch, our approach of learning a unified model simplifies the training process while also allowing the model to benefit from the common structure across categories. Using image collections from standard recognition datasets, we show that our approach allows learning 3D inference for over 150 object categories. We evaluate using two datasets and qualitatively and quantitatively show that our unified reconstruction approach improves over prior category-specific reconstruction baselines. Our final 3D reconstruction model is also capable of zero-shot inference on images from unseen object categories and we empirically show that increasing the number of training categories improves the reconstruction quality. </left>
+
+  </td>
+</tr>
+
+</tbody>
+</table>
+<p></p>
+  </div>
+<p></p>
+
+
+<hr>
+<hr>
+<h2 align="center">Visualization of the final unified model predictions</h1>
+<h3 align="center">(click on the images for full resolution)</h2>
+
+
+<table border="0" cellspacing="10" cellpadding="0">
+  <tbody>
+
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/55.gif'>
+<img src='./webpage_visuals_mesh_resized/55.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/0.gif'>
+<img src='./webpage_visuals_mesh_resized/0.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/87.gif'>
+<img src='./webpage_visuals_mesh_resized/87.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/84.gif'>
+<img src='./webpage_visuals_mesh_resized/84.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/10.gif'>
+<img src='./webpage_visuals_mesh_resized/10.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/77.gif'>
+<img src='./webpage_visuals_mesh_resized/77.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/27.gif'>
+<img src='./webpage_visuals_mesh_resized/27.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/17.gif'>
+<img src='./webpage_visuals_mesh_resized/17.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/57.gif'>
+<img src='./webpage_visuals_mesh_resized/57.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/34.gif'>
+<img src='./webpage_visuals_mesh_resized/34.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/3.gif'>
+<img src='./webpage_visuals_mesh_resized/3.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/12.gif'>
+<img src='./webpage_visuals_mesh_resized/12.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/67.gif'>
+<img src='./webpage_visuals_mesh_resized/67.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/53.gif'>
+<img src='./webpage_visuals_mesh_resized/53.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/2.gif'>
+<img src='./webpage_visuals_mesh_resized/2.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/15.gif'>
+<img src='./webpage_visuals_mesh_resized/15.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/40.gif'>
+<img src='./webpage_visuals_mesh_resized/40.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/75.gif'>
+<img src='./webpage_visuals_mesh_resized/75.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/76.gif'>
+<img src='./webpage_visuals_mesh_resized/76.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/72.gif'>
+<img src='./webpage_visuals_mesh_resized/72.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/62.gif'>
+<img src='./webpage_visuals_mesh_resized/62.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/37.gif'>
+<img src='./webpage_visuals_mesh_resized/37.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/41.gif'>
+<img src='./webpage_visuals_mesh_resized/41.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/35.gif'>
+<img src='./webpage_visuals_mesh_resized/35.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/21.gif'>
+<img src='./webpage_visuals_mesh_resized/21.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/68.gif'>
+<img src='./webpage_visuals_mesh_resized/68.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/86.gif'>
+<img src='./webpage_visuals_mesh_resized/86.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/51.gif'>
+<img src='./webpage_visuals_mesh_resized/51.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/4.gif'>
+<img src='./webpage_visuals_mesh_resized/4.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/8.gif'>
+<img src='./webpage_visuals_mesh_resized/8.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/19.gif'>
+<img src='./webpage_visuals_mesh_resized/19.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/48.gif'>
+<img src='./webpage_visuals_mesh_resized/48.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/33.gif'>
+<img src='./webpage_visuals_mesh_resized/33.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/60.gif'>
+<img src='./webpage_visuals_mesh_resized/60.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/73.gif'>
+<img src='./webpage_visuals_mesh_resized/73.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/52.gif'>
+<img src='./webpage_visuals_mesh_resized/52.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/7.gif'>
+<img src='./webpage_visuals_mesh_resized/7.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/6.gif'>
+<img src='./webpage_visuals_mesh_resized/6.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/39.gif'>
+<img src='./webpage_visuals_mesh_resized/39.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/42.gif'>
+<img src='./webpage_visuals_mesh_resized/42.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/59.gif'>
+<img src='./webpage_visuals_mesh_resized/59.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/79.gif'>
+<img src='./webpage_visuals_mesh_resized/79.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/80.gif'>
+<img src='./webpage_visuals_mesh_resized/80.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/43.gif'>
+<img src='./webpage_visuals_mesh_resized/43.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/81.gif'>
+<img src='./webpage_visuals_mesh_resized/81.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/89.gif'>
+<img src='./webpage_visuals_mesh_resized/89.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/83.gif'>
+<img src='./webpage_visuals_mesh_resized/83.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/85.gif'>
+<img src='./webpage_visuals_mesh_resized/85.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/78.gif'>
+<img src='./webpage_visuals_mesh_resized/78.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/44.gif'>
+<img src='./webpage_visuals_mesh_resized/44.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/64.gif'>
+<img src='./webpage_visuals_mesh_resized/64.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/13.gif'>
+<img src='./webpage_visuals_mesh_resized/13.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/82.gif'>
+<img src='./webpage_visuals_mesh_resized/82.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/25.gif'>
+<img src='./webpage_visuals_mesh_resized/25.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/49.gif'>
+<img src='./webpage_visuals_mesh_resized/49.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/18.gif'>
+<img src='./webpage_visuals_mesh_resized/18.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/24.gif'>
+<img src='./webpage_visuals_mesh_resized/24.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/61.gif'>
+<img src='./webpage_visuals_mesh_resized/61.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/23.gif'>
+<img src='./webpage_visuals_mesh_resized/23.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/74.gif'>
+<img src='./webpage_visuals_mesh_resized/74.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/71.gif'>
+<img src='./webpage_visuals_mesh_resized/71.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/28.gif'>
+<img src='./webpage_visuals_mesh_resized/28.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/69.gif'>
+<img src='./webpage_visuals_mesh_resized/69.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/63.gif'>
+<img src='./webpage_visuals_mesh_resized/63.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/30.gif'>
+<img src='./webpage_visuals_mesh_resized/30.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/70.gif'>
+<img src='./webpage_visuals_mesh_resized/70.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/47.gif'>
+<img src='./webpage_visuals_mesh_resized/47.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/38.gif'>
+<img src='./webpage_visuals_mesh_resized/38.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/50.gif'>
+<img src='./webpage_visuals_mesh_resized/50.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/14.gif'>
+<img src='./webpage_visuals_mesh_resized/14.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/20.gif'>
+<img src='./webpage_visuals_mesh_resized/20.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/5.gif'>
+<img src='./webpage_visuals_mesh_resized/5.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/46.gif'>
+<img src='./webpage_visuals_mesh_resized/46.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/45.gif'>
+<img src='./webpage_visuals_mesh_resized/45.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/22.gif'>
+<img src='./webpage_visuals_mesh_resized/22.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/36.gif'>
+<img src='./webpage_visuals_mesh_resized/36.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/29.gif'>
+<img src='./webpage_visuals_mesh_resized/29.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/65.gif'>
+<img src='./webpage_visuals_mesh_resized/65.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/1.gif'>
+<img src='./webpage_visuals_mesh_resized/1.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/32.gif'>
+<img src='./webpage_visuals_mesh_resized/32.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/11.gif'>
+<img src='./webpage_visuals_mesh_resized/11.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/31.gif'>
+<img src='./webpage_visuals_mesh_resized/31.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/56.gif'>
+<img src='./webpage_visuals_mesh_resized/56.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/54.gif'>
+<img src='./webpage_visuals_mesh_resized/54.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+<a href='./webpage_visuals_mesh_resized/66.gif'>
+<img src='./webpage_visuals_mesh_resized/66.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/16.gif'>
+<img src='./webpage_visuals_mesh_resized/16.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/88.gif'>
+<img src='./webpage_visuals_mesh_resized/88.gif' width='175'> 
+</a>
+</td>
+<td>
+<a href='./webpage_visuals_mesh_resized/9.gif'>
+<img src='./webpage_visuals_mesh_resized/9.gif' width='175'> 
+</a>
+</td>
+<td>
+</tr>
+
+    
+    </tbody>
+</table>
+
+
+</body></html>
