@@ -4,6 +4,8 @@ Kalyan Vasudev Alwala, Abhinav Gupta, Shubham Tulsiani
 * [Paper](todo)
 * [Project Page](todo)
 
+<img src="https://shubhtuls.github.io/ss3d/resources/overview.jpg" width="60%">
+
 ## Installation
 Pre-requisites include: pytorch, torchvision, trimesh, pymcubes.
 
@@ -11,7 +13,6 @@ Pre-requisites include: pytorch, torchvision, trimesh, pymcubes.
 * Python >=3.6
 * PyTorch tested with `1.10.0` 
 * TorchVision tested with `0.11.1`
-* cuda tested with 10.2
 * Trimesh
 * pymcubes
 
