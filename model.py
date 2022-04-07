@@ -10,8 +10,8 @@ import math
 import numpy as np
 import torch
 import torch.nn as nn
-from torchvision import models
 from pytorch_lightning.core.lightning import LightningModule
+from torchvision import models
 
 
 def normalize_imagenet(x):

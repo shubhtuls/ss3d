@@ -87,9 +87,7 @@ def generate_input_img(
     )
 
 
-def extract_trimesh(
-    model, img, device="cuda", threshold=3.0, discretization=100
-):
+def extract_trimesh(model, img, device="cuda", threshold=3.0, discretization=100):
 
     model = model.to(device)
 
