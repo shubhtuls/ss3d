@@ -2,7 +2,7 @@
 Kalyan Vasudev Alwala, Abhinav Gupta, Shubham Tulsiani
 
 * [Paper](todo)
-* [Project Page](todo)
+* [Project Page](https://shubhtuls.github.io/ss3d/)
 
 <img src="https://shubhtuls.github.io/ss3d/resources/overview.jpg" width="100%">
 
