@@ -4,7 +4,7 @@ Kalyan Vasudev Alwala, Abhinav Gupta, Shubham Tulsiani
 * [Paper](todo)
 * [Project Page](todo)
 
-<img src="https://shubhtuls.github.io/ss3d/resources/overview.jpg" width="60%">
+<img src="https://shubhtuls.github.io/ss3d/resources/overview.jpg" width="100%">
 
 ## Installation
 Pre-requisites include: pytorch, torchvision, trimesh, pymcubes.
@@ -45,6 +45,7 @@ out_mesh.export("out_mesh_pymcubes.obj")
 # To visualize the mesh
 out_mesh.show()
 ```
+
 
 <!-- # Citation
 ```
