@@ -87,7 +87,7 @@ def generate_input_img(
     )
 
 
-def extract_verts_faces_pymp(
+def extract_trimesh(
     model, img, device="cuda", threshold=3.0, discretization=20
 ):
 

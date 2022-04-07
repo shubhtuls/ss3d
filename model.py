@@ -10,6 +10,7 @@ import math
 import numpy as np
 import torch
 import torch.nn as nn
+from torchvision import models
 from pytorch_lightning.core.lightning import LightningModule
 
 
@@ -132,9 +133,6 @@ class SirenFiLM(nn.Module):
                 output = layer(output, f_i, s_i)
         output = output.squeeze(-1)
         return output
-
-
-from torchvision import models
 
 
 class ResidualLayer(nn.Module):

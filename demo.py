@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 
 import torch
-from data import generate_input_img, extract_verts_faces_pymp
+from data_utils import generate_input_img, extract_trimesh
 from model import VNet
 
 
@@ -18,5 +18,5 @@ inp_img = generate_input_img(
     "./demo_data/mask_0.png",
 )
 
-out_mesh = extract_verts_faces_pymp(model_3d, inp_img, "cuda")
+out_mesh = extract_trimesh(model_3d, inp_img, "cuda")
 out_mesh.export("out_mesh_pymcubes.obj")
