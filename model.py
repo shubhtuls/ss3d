@@ -10,7 +10,6 @@ import math
 import numpy as np
 import torch
 import torch.nn as nn
-from pytorch_lightning.core.lightning import LightningModule
 from torchvision import models
 
 
