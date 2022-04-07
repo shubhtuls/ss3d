@@ -46,6 +46,8 @@ out_mesh.export("out_mesh_pymcubes.obj")
 out_mesh.show()
 ```
 
+## Coming soon
+* Full training pipeline.
 
 <!-- # Citation
 ```
